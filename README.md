@@ -4,28 +4,23 @@ In the context of LLM agent building, reflection refers to the process of prompt
 
 - `app.py`: This is the main script that contains the streamlit app.
 - `reflection_graph.py`: This file contains langgraph code to create a reflection agent.
+## Features 
+- `Reflection and Feedback`: Provides detailed critique and recommendations to improve the essay.
+- `Feedback Loop`: Iteratively improves the essay based on the provided feedback.
 
-## Workflow
+## Explanation
 
-### 1. Initialization
-The system initializes by loading necessary environment variables and importing required libraries. It also sets up the language model and tools needed for the task.
-
-### 2. Planning
-A `planner` component generates a step-by-step plan to achieve the given objective. This plan includes individual tasks that, when executed correctly, will lead to the desired outcome. The planner ensures that each step is clear and contains all necessary information.
-
-### 3. Execution
-An `agent executor` component is responsible for carrying out the tasks in the plan. It sequentially executes each step and collects the results. If the execution of a step fails or if new information necessitates a change in the plan, the system moves to the re-planning phase.
-
-### 4. Re-planning
-The `re-planner` component reviews the current plan, the steps already executed, and any issues encountered. It then updates the plan by adding new steps or modifying existing ones as needed. The goal is to ensure that the objective can still be achieved despite any setbacks.
-
-### 5. Conditional Decision Making
-The system includes logic to determine whether the process should continue with execution, move to re-planning, or end. This decision-making process is based on the current state of the plan and the results obtained from executing steps.
+- `create_generate_agent`: Creates the essay generation agent using the ChatGroq model.
+- `create_reflect_agent`: Creates the reflection agent that provides feedback on the essay.
+- `generation_node`: Handles the essay generation step.
+- `should_continue`: Determines whether to continue the feedback loop or end it.
+- `reflection_node`: Handles the reflection and feedback step.
+- `create_graph`: Builds the message graph and sets up the feedback loop.
 
 
 ## Langgraph Graph structure
 
-![image](https://github.com/saurav-dhait/Plan-and-Execute-Agent/blob/main/assets/graph.jpeg)
+![image](https://github.com/saurav-dhait/Reflection-Agent/blob/main/assets/graph.png)
 ## Requirements
 
 Ensure you have the following Python packages installed:
